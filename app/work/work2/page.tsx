@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import DraggableP5Sketch from "./components/DraggableP5Sketch";
+import DraggableP5Sketch from "../../components/DraggableP5Sketch";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
