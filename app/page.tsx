@@ -26,24 +26,27 @@ export default function Home() {
       }}
     >
       {/* Logo - Top Left */}
-      <div style={{
-        position: "absolute",
-        top: "1rem",
-        left: "1rem",
-        zIndex: 50,
-      }}>
-        <Link href="/">
-          <img
-            src="/logo.png"
-            alt="Veronika Heckl Logo"
-            style={{
-              width: "200px",
-              height: "auto",
-              display: "block",
-            }}
-          />
-        </Link>
-      </div>
+<div
+  style={{
+    position: "absolute",
+    top: "1rem",
+    left: "1rem",
+    zIndex: 50,
+  }}
+>
+  <Link href="/">
+    <img
+      src="/images/logo.png" // updated path
+      alt="Veronika Heckl Logo"
+      style={{
+        width: "200px",
+        height: "auto",
+        display: "block",
+      }}
+    />
+  </Link>
+</div>
+
 
       {/* Contact Info - Top Right (starting at 68% of page width) */}
       <div
