@@ -36,9 +36,8 @@ export default function DraggableP5Sketch() {
 
           s.preload = () => {
             try {
-              // Load Arial Narrow from your public folder
-              // Make sure the path is correct!
-              font = s.loadFont("/fonts/ArialNarrow.ttf", 
+              font = s.loadFont(
+                "/fonts/ArialNarrow.ttf",
                 (success: any) => {
                   console.log("Arial Narrow loaded successfully:", !!success);
                 },
@@ -57,7 +56,7 @@ export default function DraggableP5Sketch() {
             try {
               const canvas = s.createCanvas(sketchWidth, sketchHeight);
               canvas.parent(sketchRef.current);
-              
+
               // Create text buffer
               createTextBuffer(s);
             } catch (err) {
@@ -66,3 +65,40 @@ export default function DraggableP5Sketch() {
           };
 
           function createTextBuffer(p: any) {
+            if (bufferCreated) return;
+
+            pg = p.createGraphics(origWidth, origHeight);
+            pg.background(255);
+            pg.fill(0);
+            pg.textFont(font || p.createFont("Arial", 32));
+            pg.textSize(32);
+            pg.textAlign(p.CENTER, p.CENTER);
+            pg.text("Hello P5!", origWidth / 2, origHeight / 2);
+
+            bufferCreated = true;
+          }
+
+          s.draw = () => {
+            if (pg) {
+              s.image(pg, 0, 0, sketchWidth, sketchHeight);
+            }
+          };
+        };
+
+        p5Instance.current = new P5(sketch, sketchRef.current);
+      } catch (err) {
+        console.error("Error initializing P5:", err);
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+      if (p5Instance.current) {
+        p5Instance.current.remove();
+        p5Instance.current = null;
+      }
+    };
+  }, []);
+
+  return <div ref={sketchRef} style={{ width: "100%", height: "100%" }} />;
+}

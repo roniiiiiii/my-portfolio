@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import opentype, { Font } from "opentype.js";
+import opentype from "opentype.js";
+import type { Font } from "opentype.js";
+
 
 interface InteractiveSpikedTextProps {
   text?: string;
