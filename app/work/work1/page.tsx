@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import img1 from "./work1-detail-1.png"; // 👈 one image only
-import P5Sketch from "@/components/P5Sketch";
+import DraggableP5Sketch from "../../components/DraggableP5Sketch";
+
+
+
+
 
 export default function Work1Page() {
   return (

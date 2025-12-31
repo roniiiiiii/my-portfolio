@@ -3,6 +3,9 @@
 import { useRef } from "react";
 import Link from "next/link";
 import DraggableP5Sketch from "./components/DraggableP5Sketch";
+
+
+
 import InteractiveSpikedText from "./components/InteractiveSpikedText";
 import "./globals.css";
 
