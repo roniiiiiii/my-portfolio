@@ -36,7 +36,7 @@ export default function Home() {
 >
   <Link href="/">
     <img
-      src="/images/logo.png" // updated path
+      src="/images/Logo.png" // updated path
       alt="Veronika Heckl Logo"
       style={{
         width: "200px",
