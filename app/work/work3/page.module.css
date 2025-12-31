@@ -1,0 +1,165 @@
+/* Custom font */
+@font-face {
+    font-family: 'Parrot-Beta-V9-Regular';
+    src: url('/fonts/Parrot-Beta-V9-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Main page container */
+.workPage {
+    min-height: 100vh;
+    background: #fafafa;
+    color: #000000;
+    font-family: 'Parrot-Beta-V9-Regular', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/* Logo positioning - this creates our alignment reference point */
+.logoContainer {
+    position: absolute;
+    top: 1rem;
+    left: 1rem; /* This is our key alignment point */
+    z-index: 50;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+/* Main content container - now aligned with logo */
+.workContent {
+    display: flex;
+    gap: 4rem;
+    /* Key change: instead of centering, we align with the logo position */
+    padding: 150px 2rem 2rem 1.5rem; /* same left padding as logo position */
+    max-width: none; /* remove max-width constraint for now */
+    margin: 0; /* remove auto centering */
+}
+
+/* Left column - this will now start exactly where the logo is horizontally */
+.workText {
+    flex: 0 0 400px;
+    position: sticky;
+    top: 150px; /* maintains vertical spacing from logo */
+    height: fit-content;
+    /* The text now naturally aligns with the logo's left edge */
+}
+
+.workTitle {
+    font-size: 1.5rem;
+    font-weight: medium;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.workDescription {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.workDescription p {
+    margin-bottom: 1.5rem;
+}
+
+.workDescription h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.workDescription ul {
+    list-style: none;
+    padding: 0;
+}
+
+.workDescription li {
+    margin-bottom: 0.5rem;
+}
+
+/* Right column - images */
+.workGallery {
+    flex: 1;
+    min-width: 0;
+    /* Add a max-width to prevent images from getting too large on wide screens */
+    max-width: 500px;
+}
+
+.galleryContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.galleryImage {
+    width: 100%;
+    height: auto;
+    border-radius: 0;      /* no rounded corners */
+    box-shadow: none;      /* no shadow */
+    transition: none;      /* no hover transition */
+}
+
+.galleryImage:hover {
+    transform: none;       /* no hover effect */
+}
+
+
+/* Tablet adjustments - maintain alignment principles */
+@media (max-width: 1024px) {
+    .workContent {
+        gap: 3rem;
+    }
+
+    .workText {
+        flex: 0 0 350px;
+    }
+}
+
+/* Mobile adjustments - alignment becomes less critical due to single column */
+@media (max-width: 768px) {
+    /* On mobile, we can center everything since we're stacking vertically */
+    .workContent {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 150px 1rem 2rem 1rem; /* equal horizontal padding for mobile */
+        max-width: 600px; /* constrain width on mobile for readability */
+        margin: 0 auto; /* center on mobile */
+    }
+
+    .logoContainer {
+        left: 1rem; /* adjust logo position for mobile */
+    }
+
+    .workText {
+        flex: none;
+        position: static;
+    }
+
+    .workTitle {
+        font-size: 2rem;
+    }
+
+    .workDescription {
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile - fine-tune spacing */
+@media (max-width: 480px) {
+    .workTitle {
+        font-size: 1.8rem;
+    }
+
+    .workContent {
+        padding: 120px 0.5rem 2rem 0.5rem;
+    }
+    
+    .logoContainer {
+        left: 0.5rem;
+    }
+}

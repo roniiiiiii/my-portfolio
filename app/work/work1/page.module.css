@@ -1,0 +1,251 @@
+/* Custom font */
+@font-face {
+    font-family: 'Parrot-Beta-V9-Regular';
+    src: url('/fonts/Parrot-Beta-V9-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Main page container */
+.workPage {
+    min-height: 100vh;
+    background: #fafafa;
+    color: #000000;
+    font-family: 'Parrot-Beta-V9-Regular', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/* Logo positioning */
+.logoContainer {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 50;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+/* Main content container */
+.workContent {
+    display: flex;
+    gap: 4rem;
+    padding: 150px 2rem 2rem 1.5rem;
+    max-width: none;
+    margin: 0;
+}
+
+/* Left column - text content (unchanged) */
+.workText {
+    flex: 0 0 400px;
+    position: sticky;
+    top: 150px;
+    height: fit-content;
+}
+
+.workTitle {
+    font-size: 1.5rem;
+    font-weight: medium;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.workDescription {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.workDescription p {
+    margin-bottom: 1.5rem;
+}
+
+.workDescription h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.workDescription ul {
+    list-style: none;
+    padding: 0;
+}
+
+.workDescription li {
+    margin-bottom: 0.5rem;
+}
+
+/* Right side - dual column gallery container */
+.workGallery {
+    flex: 1;
+    min-width: 0;
+    max-width: 800px; /* Increased to accommodate two columns */
+}
+
+/* Container for both scrolling columns */
+.dualColumnContainer {
+    display: flex;
+    gap: 1.5rem;
+    height: calc(100vh - 150px); /* fixed viewport height minus header */
+    overflow: hidden; /* prevent parent scrolling */
+}
+
+/* Individual column styling */
+.galleryColumn {
+    flex: 1;
+    overflow-y: auto; /* independent scrollbars */
+    padding-right: 8px;
+}
+
+
+/* Individual column styling */
+.galleryColumn {
+    flex: 1; /* Each column takes equal width */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding-right: 8px; /* Space for scrollbar */
+}
+
+/* Custom scrollbar styling for webkit browsers */
+.galleryColumn::-webkit-scrollbar {
+    width: 6px;
+}
+
+.galleryColumn::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.galleryColumn::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.galleryColumn::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Container within each column for the images */
+.columnImages {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between images within a column */
+    padding-bottom: 2rem; /* Extra padding at bottom of scroll area */
+}
+
+/* Individual image styling - optimized for postcard format */
+.galleryImage {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+    /* Ensure images maintain their aspect ratio */
+    object-fit: contain;
+}
+
+.galleryImage:hover {
+    transform: none;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .workContent {
+        gap: 3rem;
+    }
+
+    .workText {
+        flex: 0 0 350px;
+    }
+
+    .workGallery {
+        max-width: 500px;
+    }
+
+    /* Container for both scrolling columns */
+.dualColumnContainer {
+    display: flex;
+    gap: 1.5rem;
+    height: calc(100vh - 150px); /* fixed viewport height minus header */
+    overflow: hidden; /* prevent parent scrolling */
+}
+
+/* Individual column styling */
+.galleryColumn {
+    flex: 1;
+    overflow-y: auto; /* independent scrollbars */
+    padding-right: 8px;
+}
+
+
+    .columnImages {
+        gap: 1.2rem;
+    }
+}
+
+/* Mobile adjustments - switch to single column */
+@media (max-width: 768px) {
+    .workContent {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 150px 1rem 2rem 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .logoContainer {
+        left: 1rem;
+    }
+
+    .workText {
+        flex: none;
+        position: static;
+    }
+
+    .workTitle {
+        font-size: 2rem;
+    }
+
+    .workDescription {
+        font-size: 1rem;
+    }
+
+    /* On mobile, revert to single column layout */
+    .dualColumnContainer {
+        flex-direction: column;
+        height: auto; /* Remove fixed height on mobile */
+        gap: 1rem;
+    }
+
+    .galleryColumn {
+        overflow-y: visible; /* Remove scrolling on mobile */
+        padding-right: 0;
+    }
+
+    .columnImages {
+        gap: 1rem;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    .workTitle {
+        font-size: 1.8rem;
+    }
+
+    .workContent {
+        padding: 120px 0.5rem 2rem 0.5rem;
+    }
+    
+    .logoContainer {
+        left: 0.5rem;
+    }
+
+    .columnImages {
+        gap: 0.8rem;
+    }
+}
